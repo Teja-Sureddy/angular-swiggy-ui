@@ -1,0 +1,13 @@
+.cart{
+    border-radius: 1rem;
+    padding: 1rem;
+    background: #60b246;
+    color: #fff;
+    pointer-events: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 700px;
+    width: calc(100% - 1rem);
+    cursor: pointer;
+    z-index: 99;
+}

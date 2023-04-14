@@ -1,0 +1,26 @@
+<div class="logo">
+    <img src="../../../assets/logo.png" alt="">
+</div>
+<div class="login-form">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <h1>Login</h1>
+        <div class="content">
+            <div class="input-field">
+                <input type="text" formControlName="username" placeholder="Username" autocomplete="nope">
+                <div *ngIf="f.username.dirty && f.username.errors">
+                    <div *ngIf="f.username.errors.required" class="error-message">Username is required.</div>
+                </div>
+            </div>
+            <div class="input-field">
+                <input type="password" formControlName="password" placeholder="Password" autocomplete="new-password">
+                <div *ngIf="f.password.dirty && f.password.errors">
+                    <div *ngIf="f.password.errors.required" class="error-message">Password is required.</div>
+                </div>
+            </div>
+        </div>
+        <div class="action">
+            <a routerLink="/signup">Register</a>
+            <button type="submit" [disabled]="loginForm.invalid">Sign in</button>
+        </div>
+    </form>
+</div>

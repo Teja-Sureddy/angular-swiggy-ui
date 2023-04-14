@@ -1,0 +1,52 @@
+<div class="login-form">
+    <form [formGroup]="menuForm" (ngSubmit)="onSubmit()">
+        <h1><span *ngIf="id; else add">Edit </span><ng-template #add>Add </ng-template><span class="text-orange">{{restaurant?.name}}</span> Menu Item</h1>
+        <div class="content">
+            <div class="input-field">
+                <input type="text" formControlName="name" placeholder="Name" autocomplete="nope">
+                <div *ngIf="f.name.dirty && f.name.errors">
+                    <div *ngIf="f.name.errors.required" class="error-message">Name is required.</div>
+                </div>
+            </div>
+            <div class="input-field">
+                <input type="number" formControlName="price" placeholder="Price" autocomplete="nope" min="0">
+                <div *ngIf="f.price.dirty && f.price.errors">
+                    <div *ngIf="f.price.errors.required" class="error-message">Price is required.</div>
+                    <div *ngIf="!f.price.errors.required" class="error-message">Price should be positive.</div>
+                </div>
+            </div>
+            <div class="input-field">
+                <textarea type="text" formControlName="description" placeholder="Description"
+                    autocomplete="nope"></textarea>               
+                <div *ngIf="f.description.dirty && f.description.errors">
+                        <div *ngIf="f.description.errors.required" class="error-message">Description is required.</div>
+                    </div>
+            </div>
+            <div class="input-field d-flex align-items-center text-uppercase pt-0">
+                <span class="me-3">Type<i class="text-secondary"><small>(veg/non-veg)</small></i></span>
+                <label class="switch">
+                    <input type="checkbox" formControlName="type">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="input-field">
+                <div class="d-flex align-items-center">
+                    <label class="thumbnail-label me-2" for="thumbnail">Thumbnail</label>
+                    <div class="ellipsis">{{menuForm?.value?.image?.name}}</div>
+                </div>
+                <input type="file" id="thumbnail" autocomplete="nope" (change)="onFileChange($event)"
+                    class="d-none border-0" accept="image/*">
+                <div class="d-flex align-items-center mt-3" *ngIf="image">
+                    <div class="me-3 fw-bold">Preview</div>
+                    <img src="{{image}}" class="thumbnail-image" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="action">
+            <button type="submit" [disabled]="menuForm.invalid">
+                <span *ngIf="id; else add">Update</span>
+                <ng-template #add>Add</ng-template>
+            </button>
+        </div>
+    </form>
+</div>

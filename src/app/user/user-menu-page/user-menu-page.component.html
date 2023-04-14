@@ -1,0 +1,8 @@
+<app-user-review></app-user-review>
+<div class="container mt-4" style="margin-bottom: 100px;">
+    <div class="restaurant-name">
+        <a routerLink="/user/restaurants" class="text-dark"><i class="pi pi-arrow-left me-2"></i></a> {{restaurant?.name}}
+    </div>
+    <hr class="hr w-100 my-4">
+    <app-user-menu [menu]="menu" (review)="addToReview($event)"></app-user-menu>
+</div>

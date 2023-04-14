@@ -1,0 +1,44 @@
+<div class="login-form">
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <h1><span *ngIf="id; else add">Edit</span><ng-template #add>Add</ng-template> User</h1>
+        <div class="content">
+            <div class="input-field">
+                <input type="text" formControlName="username" placeholder="Username" autocomplete="nope">
+                <div *ngIf="f.username.dirty && f.username.errors">
+                    <div *ngIf="f.username.errors.required" class="error-message">Username is required.</div>
+                </div>
+            </div>
+            <div class="input-field">
+                <input type="email" formControlName="email" placeholder="Email" autocomplete="nope">
+                <div *ngIf="f.email.dirty && f.email.errors">
+                    <div *ngIf="f.email.errors.required" class="error-message">Email is required.</div>
+                    <div *ngIf="!f.email.errors.required && f.email.errors.email" class="error-message">Invalid Email.
+                    </div>
+                </div>
+            </div>
+            <div class="input-field">
+                <input type="password" formControlName="password" placeholder="Password" autocomplete="nope">
+                <div *ngIf="f.password.dirty && f.password.errors">
+                    <div *ngIf="f.password.errors.required" class="error-message">Password is required.</div>
+                    <div *ngIf="!f.password.errors.required && f.password.errors.minlength" class="error-message">
+                        Password must be at least 6 characters.</div>
+                </div>
+            </div>
+            <div class="input-field mt-2">
+                <select id="role" formControlName="role" placeholder="Role" class="w-100 p-2">
+                    <option selected value="">Select Role</option>
+                    <option *ngFor="let r of roles" value="{{r.id}}">{{r.name}}</option>
+                </select>
+                <div *ngIf="f.role.dirty && f.role.errors">
+                    <div *ngIf="f.role.errors.required" class="error-message">Role is required.</div>
+                </div>
+            </div>
+        </div>
+        <div class="action">
+            <button type="submit" [disabled]="signupForm.invalid">
+                <span *ngIf="id; else add">Update</span>
+                <ng-template #add>Add</ng-template>
+            </button>
+        </div>
+    </form>
+</div>

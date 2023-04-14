@@ -1,0 +1,31 @@
+<div class="login-form">
+    <form [formGroup]="restaurantForm" (ngSubmit)="onSubmit()">
+        <h1><span *ngIf="restaurant; else add">Edit</span><ng-template #add>Add</ng-template> Restaurant</h1>
+        <div class="content">
+            <div class="input-field">
+                <input type="text" formControlName="name" placeholder="Name" autocomplete="nope">
+                <div *ngIf="f.name.dirty && f.name.errors">
+                    <div *ngIf="f.name.errors.required" class="error-message">Name is required.</div>
+                </div>
+            </div>
+            <div class="input-field">
+                <div class="d-flex align-items-center">
+                    <label class="thumbnail-label me-2" for="thumbnail">Thumbnail</label>
+                    <div class="ellipsis">{{restaurantForm?.value?.image?.name}}</div>
+                </div>
+                <input type="file" id="thumbnail" autocomplete="nope" (change)="onFileChange($event)"
+                    class="d-none border-0" accept="image/*">
+                <div class="d-flex align-items-center mt-3" *ngIf="image">
+                    <div class="me-3 fw-bold">Preview</div>
+                    <img src="{{image}}" class="thumbnail-image" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="action">
+            <button type="submit" [disabled]="restaurantForm.invalid">
+                <span *ngIf="restaurant; else add">Update</span>
+                <ng-template #add>Add</ng-template>
+            </button>
+        </div>
+    </form>
+</div>

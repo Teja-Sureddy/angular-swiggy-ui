@@ -1,0 +1,12 @@
+<div class="container mt-4" style="margin-bottom: 100px;">
+    <div class="restaurant-name">
+        {{restaurant?.name}}
+    </div>
+    <hr class="hr w-100 my-4">
+    <app-user-checkout [items]="items" (addToReviewEvent)="addToReview()"></app-user-checkout>
+    <div class="text-end">
+        <a (click)="clearCart()" href="javascript:void(0);" class="w-100 text-danger">Clear Cart</a>
+    </div>
+</div>
+
+<app-user-place-order *ngIf="items.length > 0" [total]="total" (placeOrderEvent)="placeOrder()"></app-user-place-order>

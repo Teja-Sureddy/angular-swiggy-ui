@@ -1,0 +1,36 @@
+<div class="card">
+    <p-table [value]="users" [tableStyle]="{'min-width': '100%'}" responsiveLayout="scroll">
+        <ng-template pTemplate="caption">
+            <div class="d-flex justify-content-between align-items-center flex-wrap">
+                <div>Reports</div>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header" let-user>
+            <tr>
+                <th></th>
+                <th *ngFor="let res of report">{{res.restaurant}}</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-user let-columns="columns">
+            <tr>
+                <td><span class="p-column-title fw-500">Username</span><div class="fw-500">{{user.username}}</div></td>
+                <td *ngFor="let res of report">
+                    <span class="p-column-title fw-500">{{res.restaurant}}</span>
+                    <div>
+                    <div *ngFor="let u of res.user_spending">
+                        <div *ngIf="user.username === u.order__user__username">
+                            {{u.total_spending  | currency:'INR'}}
+                        </div>
+                    </div></div>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td [attr.colspan]="100" class="text-center text-danger">
+                    No records found
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

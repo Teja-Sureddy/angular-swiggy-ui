@@ -1,0 +1,26 @@
+.active::after {
+    content: "";
+    position: absolute;
+    bottom: 4px;
+    left: 8px;
+    height: 2px;
+    width: calc(100% - 16px);
+    background-color: #fc8112;
+}
+
+@media screen and (max-width: 768px) {
+    .logout{
+        justify-content: center;
+        margin-right: 0 !important;
+    }
+    .nav-link{
+        text-align: center !important;
+    }
+    .active{
+        color: #fc8112 !important;
+        font-weight: bold !important;
+    }
+    .active::after {
+        display: none;
+    }
+}

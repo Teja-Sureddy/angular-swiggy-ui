@@ -1,0 +1,14 @@
+::ng-deep .p-toast {
+    transform: scale(0.85);
+}
+
+@media screen and (max-width: 480px) {
+    ::ng-deep .p-toast {
+        max-width: 100%;
+
+    }
+
+    ::ng-deep .p-toast-top-right {
+        right: 0 !important;
+    }
+}

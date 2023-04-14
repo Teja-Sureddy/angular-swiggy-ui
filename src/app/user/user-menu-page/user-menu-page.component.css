@@ -1,0 +1,13 @@
+.hr {
+    background-color: #000;
+    border: none;
+    height: 1px;
+}
+
+.restaurant-name {
+    font-size: 1.43rem;
+    font-weight: 600;
+    color: #282c3f;
+    margin-bottom: 8px;
+    text-transform: capitalize;
+}

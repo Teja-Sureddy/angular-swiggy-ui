@@ -1,0 +1,21 @@
+<div *ngFor="let r of menu; let i = index">
+    <div class="d-flex justify-content-between align-items-start">
+        <div class="left">
+            <img *ngIf="!r.type" src="../../../assets/veg.jpg" alt="">
+            <img *ngIf="r.type" src="../../../assets/non-veg.jpg" alt="">
+            <div class="mt-1 name">{{r.name}}</div>
+            <div class="mt-1">{{r.price | currency:'INR'}}</div>
+            <small class="description">{{r.description}}</small>
+        </div>
+        <div class="right ms-3">
+            <img [src]="r.image?r.image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRSK9NiZSFYqsw_81jv2LywGZ2EPqmNCChSw&usqp=CAU'"
+                    alt="">
+            <div class="add-button">
+                <button *ngIf="!r.quantity" (click)="r.quantity = 1; addToReview(i)">Add</button>
+                <p-inputNumber *ngIf="r.quantity && r.quantity > 0" (onInput)="addToReview(i)" [showButtons]="true" buttonLayout="horizontal"
+                    inputId="horizontal" spinnerMode="horizontal" [(ngModel)]="r.quantity" mode="decimal" [min]="0" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"></p-inputNumber>
+            </div>
+        </div>
+    </div>
+    <hr class="hr w-100 my-4">
+</div>

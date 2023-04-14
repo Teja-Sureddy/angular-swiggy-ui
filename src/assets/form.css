@@ -1,0 +1,11 @@
+.login-form .action button:nth-child(1) {
+    background: #f27800;
+    color: #fff;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 4px;
+  }
+  
+  .login-form .action button:nth-child(1):hover,
+    .login-form .action button:nth-child(1):focus {
+    background: #ff9832;
+  }

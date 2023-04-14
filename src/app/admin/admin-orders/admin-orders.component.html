@@ -1,0 +1,63 @@
+<app-delete-popup [title]="deleteOrderData.title" (deleteRecord)="deleteOrder()"></app-delete-popup>
+<div class="card">
+    <p-table [value]="orders" [tableStyle]="{'min-width': '100%'}" responsiveLayout="scroll" [lazy]="true"
+        (onLazyLoad)="loadOrders($event)" dataKey="id" [paginator]="true" [rows]="25" [totalRecords]="totalRecords">
+        <ng-template pTemplate="caption">
+            <div class="d-flex justify-content-between align-items-center flex-wrap">
+                <div>Orders List</div>
+                <a routerLink="../orders-form" class="text-primary">Add Order</a>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header" let-order>
+            <tr>
+                <th pSortableColumn="id">ID
+                    <p-sortIcon field="id"></p-sortIcon>
+                    <p-columnFilter type="numeric" min="0" field="id" [matchModeOptions]="idMatchModeOptions"
+                        display="menu"></p-columnFilter>
+                </th>
+                <th pSortableColumn="user__username">Username
+                    <p-sortIcon field="user__username"></p-sortIcon>
+                    <p-columnFilter type="text" field="user__username" [matchModeOptions]="matchModeOptions"
+                        display="menu"></p-columnFilter>
+                </th>
+                <th pSortableColumn="restaurant__name">Restaurant
+                    <p-sortIcon field="restaurant__name"></p-sortIcon>
+                    <p-columnFilter type="text" field="restaurant__name" [matchModeOptions]="matchModeOptions"
+                        display="menu"></p-columnFilter>
+                </th>
+                <th pSortableColumn="dateTime">Ordered on
+                    <p-sortIcon field="dateTime"></p-sortIcon>
+                    <p-columnFilter type="date" field="dateTime" display="menu"
+                        [matchModeOptions]="matchModeDateOptions"></p-columnFilter>
+                </th>
+                <th>Total Price</th>
+                <th>Items</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-order let-columns="columns">
+            <tr>
+                <td><span class="p-column-title">ID</span>#{{order.id}}</td>
+                <td><span class="p-column-title">Username</span>{{order.userName}}</td>
+                <td><span class="p-column-title">Restaurant</span>{{order.restaurantName}}</td>
+                <td><span class="p-column-title">Ordered on</span>{{order.dateTime | date:'medium'}}</td>
+                <td><span class="p-column-title">Total Price</span>{{order.total_price | currency:'INR'}}</td>
+                <td><span class="p-column-title">Items</span><a routerLink="../ordereditems/{{order.id}}"
+                        class="text-primary">View Items</a></td>
+                <td><span class="p-column-title">Edit</span><a routerLink="../orders-form/{{order.id}}"
+                        class="text-primary">Edit</a></td>
+                <td><span class="p-column-title">Delete</span><button class="btn btn-danger"
+                        (click)="deleteOrderData = {'title':'order #'+order.id,'id':order.id}" data-bs-toggle="modal"
+                        data-bs-target="#deleteModal">Delete</button></td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td [attr.colspan]="100" class="text-center text-danger">
+                    No records found
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

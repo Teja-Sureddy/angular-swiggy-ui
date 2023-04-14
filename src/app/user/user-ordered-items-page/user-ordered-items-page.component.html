@@ -1,0 +1,7 @@
+<div class="container">
+    <div class="p-3 border-bottom">
+        <a routerLink="/user/orders" class="text-dark"><i class="pi pi-arrow-left me-3"></i></a> 
+        <span class="fw-bold">ORDER #{{order?.id}}</span>
+    </div>
+    <app-user-ordered-items [order]="order" [items]="items"></app-user-ordered-items>
+</div>

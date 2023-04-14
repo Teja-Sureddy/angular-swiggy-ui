@@ -1,0 +1,18 @@
+<div *ngFor="let item of items">
+    <div class="d-flex justify-content-between align-items-center">
+        <div class="left d-flex justify-content-start align-items-center">
+            <img *ngIf="!item.type" src="../../../assets/veg.jpg" alt="">
+            <img *ngIf="item.type" src="../../../assets/non-veg.jpg" alt="">
+            <div class="name ms-2">{{item.name}}</div>
+        </div>
+        <div class="d-flex justify-content-end align-items-center">
+            <div class="add-button">
+                <p-inputNumber (onInput)="addToReview()" [showButtons]="true" buttonLayout="horizontal"
+                    inputId="horizontal" spinnerMode="horizontal" [(ngModel)]="item.quantity" mode="decimal"
+                    [min]="0" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"></p-inputNumber>
+            </div>
+            <div class="price">{{item.price * item.quantity | currency:'INR'}}</div>
+        </div>
+    </div>
+    <hr class="hr w-100 my-4">
+</div>

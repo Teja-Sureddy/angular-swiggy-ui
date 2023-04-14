@@ -1,0 +1,65 @@
+<app-delete-popup [title]="deleteUserData.title" (deleteRecord)="deleteUser()"></app-delete-popup>
+<div class="card">
+    <p-table [value]="users" [tableStyle]="{'min-width': '100%'}" responsiveLayout="scroll" [lazy]="true"
+        (onLazyLoad)="loadUsers($event)" dataKey="id" [paginator]="true" [rows]="25" [totalRecords]="totalRecords">
+        <ng-template pTemplate="caption">
+            <div class="d-flex justify-content-between align-items-center flex-wrap">
+                <div>Users List</div>
+                <a routerLink="../user-form" class="text-primary">Add User</a>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header" let-user>
+            <tr>
+                <th pSortableColumn="username">Username
+                    <p-sortIcon field="username"></p-sortIcon>
+                    <p-columnFilter type="text" field="username" [matchModeOptions]="matchModeOptions"
+                        display="menu"></p-columnFilter>
+                </th>
+                <th pSortableColumn="email">Email
+                    <p-sortIcon field="email"></p-sortIcon>
+                    <p-columnFilter type="text" field="email" [matchModeOptions]="matchModeOptions"
+                        display="menu"></p-columnFilter>
+                </th>
+                <th pSortableColumn="role__name">Role
+                    <p-sortIcon field="role__name"></p-sortIcon>
+                    <p-columnFilter field="role__name" matchMode="equals" display="menu" [showMatchModes]="false"
+                        [showOperator]="false" [showAddButton]="false" class="ml-auto">
+                        <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                            <p-dropdown [ngModel]="value" [options]="['admin','manager','user']"
+                                placeholder="Select Role" (onChange)="filter($event.value)">
+                                <ng-template let-option pTemplate="item">
+                                    <div class="p-multiselect-representative-option">
+                                        <span class="ml-1">{{option}}</span>
+                                    </div>
+                                </ng-template>
+                            </p-dropdown>
+                        </ng-template>
+                    </p-columnFilter>
+                </th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-user let-columns="columns">
+            <tr>
+                <td><span class="p-column-title">Username</span>{{user.username}}</td>
+                <td><span class="p-column-title">Email</span>{{user.email}}</td>
+                <td><span class="p-column-title">Role</span>{{user.roleName}}</td>
+                <td><span class="p-column-title">Edit</span><a routerLink="../user-form/{{user.id}}"
+                        class="text-primary">Edit</a></td>
+                <td><span class="p-column-title">Delete</span><button class="btn btn-danger"
+                        (click)="deleteUserData = {'title':user.username,'id':user.id}" data-bs-toggle="modal"
+                        data-bs-target="#deleteModal">Delete</button></td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td [attr.colspan]="100" class="text-center text-danger">
+                    No records found
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+    <!-- <p-paginator [rows]="25" [totalRecords]="totalRecords" pageLinkSize="3"
+        (onPageChange)="paginate($event)"></p-paginator> -->
+</div>

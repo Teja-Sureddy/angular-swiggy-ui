@@ -1,0 +1,28 @@
+
+.cart {
+    border-radius: 1rem 1rem 0 0;
+    padding: 1rem;
+    background: #ffffff;
+    pointer-events: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 700px;
+    width: calc(100% - 1rem);
+    cursor: pointer;
+    box-shadow: 0 -2px 6px rgb(40 44 63 / 10%);
+}
+
+.cart .place-order-btn {
+    border: none;
+    background-color: #60b246;
+    color: #fff;
+    font-size: 1rem;
+    padding: 0.5rem 2rem;
+    border-radius: 0.5rem;
+}
+
+.cart .place-order-btn:focus,
+.cart .place-order-btn:hover {
+    background-color: #36a714;
+
+}

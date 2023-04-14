@@ -1,0 +1,85 @@
+.left img {
+    width: 14px;
+    height: 14px;
+}
+
+.hr {
+    background-color: #000;
+    border: none;
+    height: 1px;
+}
+
+.name {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #282c3f;
+    text-transform: capitalize;
+}
+
+.add-button {
+    width: 96px;
+    min-height: 36px;
+    box-shadow: 0 3px 8px rgb(0 0 0 / 8%);
+    border: 1px solid #d4d5d9;
+    background-color: #fff;
+    contain: content;
+    overflow: hidden;
+    position: relative;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.add-button button {
+    line-height: 36px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #60b246;
+    text-align: center;
+    line-height: 30px;
+    width: 100%;
+    border: none;
+    background-color: transparent;
+}
+
+.price {
+    width: 72px;
+    text-align: right;
+    color: #3d4152;
+    font-size: .86rem;
+    padding-top: 6px;
+    font-weight: 400;
+}
+
+::ng-deep .p-inputnumber-buttons-horizontal .p-inputnumber-input {
+    width: 30px;
+    padding: 0;
+    text-align: center;
+    border: none;
+    line-height: 30px;
+    color: #60b246;
+    font-weight: 600;
+}
+
+::ng-deep .p-inputnumber-buttons-horizontal .p-button.p-inputnumber-button-up,
+::ng-deep .p-inputnumber-buttons-horizontal .p-button.p-inputnumber-button-down {
+    background-color: transparent !important;
+    width: 30px !important;
+    height: 30px !important;
+    color: #60b246 !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+    line-height: 30px !important;
+    font-size: 20px !important;
+    border: none;
+}
+
+::ng-deep .p-inputnumber-buttons-horizontal .p-button.p-inputnumber-button-down {
+    color: #cdced2 !important;
+}
+
+::ng-deep .p-inputtext:enabled:focus {
+    box-shadow: none !important;
+    border-color: transparent !important;
+}

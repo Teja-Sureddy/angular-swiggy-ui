@@ -1,0 +1,29 @@
+<div class="login-form">
+    <form [formGroup]="orderedItemForm" (ngSubmit)="onSubmit()">
+        <h1><span *ngIf="id; else add">Edit</span><ng-template #add>Add</ng-template> Item from<br><span class="text-orange">{{order?.restaurantName}}</span> for <span class="text-orange">{{order?.userName}}</span></h1>
+        <div class="content">
+            <div class="input-field mt-2">
+                <select id="item" formControlName="item" placeholder="Item" class="w-100 p-2">
+                    <option selected value="">Select Item</option>
+                    <option *ngFor="let m of menu" value="{{m.id}}">{{m.name}}</option>
+                </select>
+                <div *ngIf="f.item.dirty && f.item.errors">
+                    <div *ngIf="f.item.errors.required" class="error-message">Item is required.</div>
+                </div>
+            </div>
+            <div class="input-field">
+                <input type="number" formControlName="quantity" placeholder="Quantity" autocomplete="nope" min="0">
+                <div *ngIf="f.quantity.dirty && f.quantity.errors">
+                    <div *ngIf="f.quantity.errors.required" class="error-message">Quantity is required.</div>
+                    <div *ngIf="!f.quantity.errors.required" class="error-message">Quantity should be positive.</div>
+                </div>
+            </div>
+        </div>
+        <div class="action">
+            <button type="submit" [disabled]="orderedItemForm.invalid">
+                <span *ngIf="id; else add">Update</span>
+                <ng-template #add>Add</ng-template>
+            </button>
+        </div>
+    </form>
+</div>

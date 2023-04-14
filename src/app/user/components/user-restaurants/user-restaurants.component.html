@@ -1,0 +1,13 @@
+<div class="container" style="margin-bottom: 100px;">
+    <div class="restaurant-container">
+        <a class="restaurant-card" *ngFor="let r of restaurants" routerLink="../menu/{{r.id}}">
+            <div class="restaurant-row">
+                <img [src]="r.image?r.image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRSK9NiZSFYqsw_81jv2LywGZ2EPqmNCChSw&usqp=CAU'"
+                    alt="">
+                <div class="details mt-3">
+                    <div>{{r.name}}</div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>

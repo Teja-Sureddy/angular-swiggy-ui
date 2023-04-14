@@ -1,1 +1,278 @@
 /* You can add global styles to this file, and also import other style files */
+.text-orange {
+  color: orange !important;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background: #ffffff;
+  font-family: 'Rubik', sans-serif;
+  min-height: 100vh;
+}
+
+.login-form {
+  background: #fff;
+  width: 500px;
+  max-width: 100%;
+  margin: 65px auto;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  border-radius: 4px;
+  box-shadow: 0 2px 25px rgba(0, 0, 0, 0.2);
+}
+
+.login-form h1 {
+  padding: 35px 35px 0 35px;
+  font-weight: 300;
+  /* font-size: 2rem; */
+}
+
+.login-form .content {
+  padding: 35px;
+  text-align: center;
+}
+
+.login-form .input-field {
+  padding: 12px 5px;
+}
+
+.login-form .input-field textarea {
+  height: 112px;
+  padding: 0.5rem;
+  width: 100%;
+  resize: none;
+}
+
+.login-form .input-field input {
+  font-size: 16px;
+  display: block;
+  font-family: 'Rubik', sans-serif;
+  width: 100%;
+  padding: 10px 1px;
+  border: 0;
+  border-bottom: 1px solid #747474;
+  outline: none;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+.login-form .input-field input::-webkit-input-placeholder,
+.login-form .input-field textarea::-webkit-input-placeholder {
+  text-transform: uppercase;
+}
+
+.login-form .input-field input::-moz-placeholder,
+.login-form .input-field textarea::-moz-placeholder {
+  text-transform: uppercase;
+}
+
+.login-form .input-field input:-ms-input-placeholder,
+.login-form .input-field textarea:-ms-input-placeholder {
+  text-transform: uppercase;
+}
+
+.login-form .input-field input::-ms-input-placeholder,
+.login-form .input-field textarea::-ms-input-placeholder {
+  text-transform: uppercase;
+}
+
+.login-form .input-field input::placeholder,
+.login-form .input-field textarea::placeholder {
+  text-transform: uppercase;
+}
+
+.login-form .input-field input:focus,
+.login-form .input-field textarea:focus {
+  border-color: #222;
+}
+
+.login-form a.link {
+  text-decoration: none;
+  color: #747474;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.login-form .action {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-direction: row;
+}
+
+.login-form .action button,
+.login-form .action a {
+  width: 100%;
+  border: none;
+  padding: 18px;
+  font-family: 'Rubik', sans-serif;
+  cursor: pointer;
+  text-transform: uppercase;
+  background: #e8e9ec;
+  color: #777;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 0;
+  letter-spacing: 0.2px;
+  outline: 0;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  text-align: center;
+  text-decoration: none;
+}
+
+.login-form .action button:hover,
+.login-form .action a:hover,
+.login-form .action button:focus,
+.login-form .action a:focus {
+  background: #d8d8d8;
+}
+
+.login-form .action button:nth-child(2) {
+  background: #f27800;
+  color: #fff;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 4px;
+}
+
+.login-form .action button:nth-child(2):hover,
+.login-form .action button:nth-child(2):focus {
+  background: #ff9832;
+}
+
+.login-form .action button[disabled],
+.login-form .action button[disabled]:hover,
+.login-form .action button[disabled]:focus {
+  background-color: #ffbb77 !important;
+}
+
+.error-message {
+  color: #e35869;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+  text-align: end;
+}
+
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked+.slider {
+  background-color: #f27800;
+}
+
+input:focus+.slider {
+  box-shadow: 0 0 1px #f27800;
+}
+
+input:checked+.slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+.thumbnail-image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.thumbnail-label {
+  background-color: #eeeeee;
+  width: 120px;
+  padding: 0.25rem 1rem;
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  border: 1px solid black;
+  height: 30px;
+  text-align: left;
+  padding: 0 0.25rem;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 1rem 1rem;
+}
+
+.logo img {
+  width: 100%;
+  max-width: 300px;
+}
+
+.fw-500 {
+  font-weight: 500;
+}
+
+.p-column-filter-operator,
+.p-column-filter-add-rule {
+  display: none !important;
+}
+
+.p-element .p-sortable-column{
+  white-space: nowrap;
+}

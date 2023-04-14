@@ -1,0 +1,19 @@
+.order-card {
+    display: block;
+    text-decoration: none;
+    color: #7e808c;
+    border-bottom: 1px solid #282c3f;
+}
+
+.name {
+    color: #282c3f;
+    font-weight: 500;
+}
+
+.menu-details {
+    border-top: 1px dashed #d4d5d9;
+}
+
+.fs-9{
+    font-size: 0.9rem;
+}

@@ -1,0 +1,23 @@
+<div class="px-3 py-4">
+    <div class="restaurant-name pb-3">{{order?.restaurantName}}</div>
+    <div class="d-flex align-items-center">
+        <img src="../../../assets/success.png" alt="" width="18px" height="18px">
+        <span class="ms-3">Delivered on {{order?.dateTime | date:'medium'}}</span>
+    </div>
+</div>
+<div class="details">Details</div>
+<div class="m-3">
+    <div *ngFor="let item of items" class="d-flex justify-content-between align-items-center my-2">
+        <div class="eachitem">
+            <img *ngIf="!item.itemType" src="../../../assets/veg.jpg" alt="">
+            <img *ngIf="item.itemType" src="../../../assets/non-veg.jpg" alt="">
+            <span class="ms-2">{{item.itemName}} x {{item.quantity}}</span>
+        </div>
+        <div>
+            {{item.itemPrice * item.quantity | currency:'INR'}}
+        </div>
+    </div>
+    <div class="my-3 text-end total py-3 fw-bold">
+        <span class="me-5">Bill Total</span><span>{{order?.total_price | currency:'INR'}}</span>
+    </div>
+</div>
